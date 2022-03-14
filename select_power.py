@@ -99,12 +99,8 @@ FLAGS = flags.FLAGS
 
 # Parameters
 flags.DEFINE_string('dataset', 'cora', 'Name of the graph dataset (acm, citeseer, pubmed or wiki).')
-flags.DEFINE_integer('max_iter', 30, 'Number of iterations of the algorithm.')
-flags.DEFINE_float('tol', 10e-7, 'Tolerance threshold of convergence.')
 flags.DEFINE_string('kernel', 'linear', 'type of kernel')
 dataset = flags.FLAGS.dataset
-max_iter = flags.FLAGS.max_iter
-tolerance = flags.FLAGS.tol
 kernel = flags.FLAGS.kernel
 
 
@@ -149,7 +145,7 @@ for power in range(1, 300):
   metrics['ari'].append(ari(labels, z)*100)
   
   if np.abs(loss_old-loss) < features.shape[1] / (features.shape[0]*np.ceil(np.sqrt(n_classes))): break
-  loss_old = loss
+  loss_old = np.round(loss, 2)
   
 
 results = {
@@ -157,5 +153,5 @@ results = {
     'std': {k:(np.std(v)).round(2) for k,v in metrics.items()}
 }
 
-print(f'Selected Power is {power-1}')
+print(f'Selected Power is {power}')
 
