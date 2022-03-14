@@ -101,14 +101,10 @@ FLAGS = flags.FLAGS
 flags.DEFINE_string('dataset', 'cora', 'Name of the graph dataset (acm, citeseer, pubmed or wiki).')
 flags.DEFINE_integer('power', 5, 'Propagation order.')
 flags.DEFINE_integer('runs', 5, 'Number of runs per power.')
-flags.DEFINE_integer('max_iter', 30, 'Number of iterations of the algorithm.')
-flags.DEFINE_float('tol', 10e-7, 'Tolerance threshold of convergence.')
 flags.DEFINE_string('kernel', 'linear', 'type of kernel')
 dataset = flags.FLAGS.dataset
 power = flags.FLAGS.power
 runs = flags.FLAGS.runs
-max_iter = flags.FLAGS.max_iter
-tolerance = flags.FLAGS.tol
 kernel = flags.FLAGS.kernel
 
 
