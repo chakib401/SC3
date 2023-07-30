@@ -1,4 +1,4 @@
-# SCC / SC³
+# Subspace Convolutional Co-Clustering
 
 This repository is for reproducing experiments from :
 
